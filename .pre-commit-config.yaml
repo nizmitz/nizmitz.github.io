@@ -1,0 +1,21 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+-   repo: local
+    hooks:
+    -   id: lint
+        name: ESLint checks
+        entry: npx eslint --fix
+        language: system
+        types_or: [javascript, jsx, ts, tsx]
+        pass_filenames: true
+    -   id: test
+        name: Unit tests
+        entry: npm run test -- --run
+        language: system
+        pass_filenames: false
