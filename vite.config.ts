@@ -18,10 +18,19 @@ export default defineConfig(({mode}) => {
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            'vendor-react': ['react', 'react-dom'],
-            'vendor-ui': ['lucide-react', 'motion'],
-            'vendor-pdf': ['@react-pdf/renderer'],
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'vendor-react';
+              }
+              if (id.includes('lucide-react') || id.includes('motion')) {
+                return 'vendor-ui';
+              }
+              if (id.includes('@react-pdf/renderer')) {
+                return 'vendor-pdf';
+              }
+              return 'vendor';
+            }
           },
         },
       },
