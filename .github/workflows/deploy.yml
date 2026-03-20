@@ -32,6 +32,8 @@ jobs:
         run: npm ci --legacy-peer-deps
       - name: Build
         run: npm run build
+        env:
+          VITE_PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.PUBLIC_TURNSTILE_SITE_KEY }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

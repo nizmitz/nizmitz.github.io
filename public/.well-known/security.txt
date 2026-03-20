@@ -1,0 +1,5 @@
+Contact: mailto:fattahemiryanuar@gmail.com
+Expires: 2027-03-20T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://nizmitz.github.io/.well-known/security.txt
+Policy: https://nizmitz.github.io/SECURITY.md

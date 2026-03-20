@@ -1,0 +1,9 @@
+/* TEAM */
+    Developer: Fattah Emir Yanuar
+    Site: https://nizmitz.github.io
+
+/* SITE */
+    Last update: 2026/03/20
+    Language: English
+    Doctype: HTML5
+    IDE: VS Code, Antigravity

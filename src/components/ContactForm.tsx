@@ -53,6 +53,11 @@ export function ContactForm() {
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
         />
       </div>
+      <div
+        className="cf-turnstile"
+        data-sitekey={import.meta.env.VITE_PUBLIC_TURNSTILE_SITE_KEY || "0x4AAAAAACto7VT7cTYjGWaD"}
+        data-theme="dark"
+      ></div>
       <button
         type="submit"
         className="w-full sm:w-auto px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium flex items-center justify-center gap-2 transition-colors"
