@@ -17,7 +17,7 @@
     "@react-pdf/renderer": "^4.3.2",
     "@tailwindcss/vite": "^4.2.1",
     "@vitejs/plugin-react": "^5.1.4",
-    "better-sqlite3": "^12.6.2",
+    "better-sqlite3": "^12.8.0",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "lucide-react": "^0.577.0",
