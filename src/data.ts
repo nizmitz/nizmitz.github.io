@@ -4,7 +4,7 @@ export const personalInfo = {
   location: "Bekasi, Indonesia",
   email: "fattahemiryanuar@gmail.com",
   phone: "+62 857 8289 1482",
-  linkedin: "https://linkedin.com/in/fattahemiryanuar",
+  linkedin: "https://www.linkedin.com/in/fattah-emir-yanuar-7a1982173",
   github: "https://github.com/nizmitz",
   profile: "Senior Cloud Infrastructure Engineer with over 6 years of expertise architecting, automating, and securing high-availability hybrid and multi-cloud environments (AWS, GCP, Alibaba Cloud, VMware, OpenShift). Distinguished by top-tier industry certifications (AWS SAPro, GCP PCA, CKA), I specialize in orchestrating robust containerized architectures with Kubernetes, driving infrastructure-as-code (IaC) via Terraform and Ansible, and implementing advanced CI/CD pipelines (GitLab CI, Jenkins). Proven track record of leveraging Vault and modern observability stacks to deliver resilient, compliant, and scalable enterprise solutions."
 };
@@ -27,9 +27,11 @@ export const experiences = [
     location: "Jakarta Metropolitan Area",
     date: "March 2025 — Present",
     responsibilities: [
-      "Improve Automation for backup and restore purposes",
+      "Improve Automation for backup and restore on CloudSQL for Compliance",
       "Set up BMC ControlM for automating toils in AS 400 system",
-      "Working with both on-premises and cloud based technologies"
+      "Administer and maintain both On-premises and Cloud based technologies",
+      "Automating Swingover and Swingback process using BMC ControlM",
+      "Spearheading Project for VMware to GCP migration using M2VM and MCDC"
     ]
   },
   {
@@ -65,7 +67,8 @@ export const experiences = [
       "Maintain HashiCorp Vault configuration and improve secret injector to pods",
       "Maintain configuration of Internal DNS and External DNS",
       "Maintain Infrastructure on GCP using Terraform",
-      "Create and maintain terraform with blueprint and self service model"
+      "Create and maintain terraform with blueprint and self service model",
+      "Administer and Maintain Istio Service Mesh in GKE"
     ]
   },
   {
@@ -152,6 +155,6 @@ export const education = [
   {
     degree: "Bachelor's degree in Information Technology",
     school: "Universitas Gunadarma",
-    date: "January 2015 — January 2019"
+    date: "August 2015 — September 2019"
   }
 ];
