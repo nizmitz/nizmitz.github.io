@@ -1,6 +1,6 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
-import { personalInfo, skills, experiences, certifications, education } from '../data';
+import { personalInfo, skills, experiences, certifications, education, languages } from '../data';
 
 const styles = StyleSheet.create({
   page: {
@@ -108,6 +108,34 @@ const styles = StyleSheet.create({
   },
   eduDegree: {
     fontStyle: 'italic',
+    marginBottom: 2,
+  },
+  eduGpa: {
+    fontWeight: 'bold',
+    color: '#0056b3',
+  },
+  eduDetail: {
+    fontSize: 9,
+    color: '#666',
+    fontStyle: 'italic',
+  },
+  langItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 4,
+  },
+  langName: {
+    fontWeight: 'bold',
+  },
+  langProficiency: {
+    fontStyle: 'italic',
+    color: '#0056b3',
+  },
+  langDetail: {
+    fontSize: 8,
+    color: '#666',
+    marginTop: -2,
+    marginBottom: 4,
   },
 });
 
@@ -173,7 +201,29 @@ export const ResumePDF = () => (
               <Text style={styles.eduSchool}>{edu.school}</Text>
               <Text style={styles.expDate}>{edu.date}</Text>
             </View>
-            <Text style={styles.eduDegree}>{edu.degree}</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
+              <Text style={styles.eduDegree}>{edu.degree}</Text>
+              {edu.gpa && <Text style={styles.eduGpa}>GPA: {edu.gpa}</Text>}
+            </View>
+            {edu.activities && (
+              <Text style={styles.eduDetail}>Activities: {edu.activities}</Text>
+            )}
+            {edu.finalProject && (
+              <Text style={styles.eduDetail}>Final Project: {edu.finalProject}</Text>
+            )}
+          </View>
+        ))}
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Languages</Text>
+        {languages.map((lang, i) => (
+          <View key={i}>
+            <View style={styles.langItem}>
+              <Text style={styles.langName}>{lang.name}</Text>
+              <Text style={styles.langProficiency}>{lang.proficiency}</Text>
+            </View>
+            {lang.detail && <Text style={styles.langDetail}>{lang.detail}</Text>}
           </View>
         ))}
       </View>

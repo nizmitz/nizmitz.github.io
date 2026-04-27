@@ -155,6 +155,15 @@ export const education = [
   {
     degree: "Bachelor's degree in Information Technology",
     school: "Universitas Gunadarma",
-    date: "August 2015 — September 2019"
+    date: "August 2015 — September 2019",
+    gpa: "3.11/4",
+    activities: "Lab Technical Support",
+    finalProject: "Controlling Home Appliance Based on NodeMCU Using Android Smartphone"
   }
+];
+
+export const languages = [
+  { name: "Indonesia", proficiency: "Native proficiency", detail: "" },
+  { name: "English", proficiency: "Professional proficiency", detail: "IELTS rating C1/7.5" },
+  { name: "Japan", proficiency: "Rudimentary", detail: "" }
 ];

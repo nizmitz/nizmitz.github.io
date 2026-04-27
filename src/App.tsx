@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Github, Linkedin, Mail, Download, MapPin, Briefcase, Award, GraduationCap, Code2 } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, MapPin, Briefcase, Award, GraduationCap, Code2, Globe } from 'lucide-react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import { personalInfo, skills, experiences, certifications, education } from './data';
+import { personalInfo, skills, experiences, certifications, education, languages } from './data';
 import { ResumePDF } from './components/ResumePDF';
 import { ContactForm } from './components/ContactForm';
 import { SkillIcon } from './components/SkillIcon';
@@ -218,10 +218,56 @@ function App() {
                     transition={{ duration: 0.4 }}
                   >
                     <h3 className="text-lg font-bold text-slate-900 mb-1">{edu.school}</h3>
-                    <p className="text-slate-600 mb-2">{edu.degree}</p>
-                    <span className="text-sm font-medium text-slate-400">{edu.date}</span>
+                    <p className="text-slate-600 mb-1">{edu.degree}</p>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 mb-2">
+                      <span className="text-sm font-medium text-slate-400">{edu.date}</span>
+                      {edu.gpa && (
+                        <span className="text-sm font-medium text-indigo-600">GPA: {edu.gpa}</span>
+                      )}
+                    </div>
+                    {edu.activities && (
+                      <p className="text-sm text-slate-500 mb-1 italic">
+                        <span className="font-semibold not-italic">Activities:</span> {edu.activities}
+                      </p>
+                    )}
+                    {edu.finalProject && (
+                      <p className="text-sm text-slate-500 italic">
+                        <span className="font-semibold not-italic">Final Project:</span> {edu.finalProject}
+                      </p>
+                    )}
                   </motion.div>
                 ))}
+              </div>
+
+              {/* Languages */}
+              <div className="mt-16">
+                <div className="flex items-center gap-3 mb-10">
+                  <div className="p-2 bg-indigo-100 text-indigo-600 rounded-lg">
+                    <Globe size={24} />
+                  </div>
+                  <h2 className="text-2xl font-bold text-slate-900">Languages</h2>
+                </div>
+                <div className="space-y-6">
+                  {languages.map((lang, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                      <div className="flex items-baseline justify-between mb-1">
+                        <h3 className="font-bold text-slate-900">{lang.name}</h3>
+                        <span className="text-xs font-semibold text-indigo-600 px-2 py-0.5 bg-indigo-50 rounded-full">
+                          {lang.proficiency}
+                        </span>
+                      </div>
+                      {lang.detail && (
+                        <p className="text-sm text-slate-500">{lang.detail}</p>
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
