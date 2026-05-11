@@ -27,13 +27,13 @@ export const experiences = [
     location: "Jakarta Metropolitan Area",
     date: "March 2025 — Present",
     responsibilities: [
-      "Improve Automation for backup and restore on CloudSQL for Compliance",
-      "Set up BMC ControlM for automating toils in AS 400 system",
-      "Administer and maintain Hybrid Cloud setup in GCP, AWS and On-Premise VMware",
-      "Automating Swingover and Swingback process using BMC ControlM with PowerCLI",
-      "Spearheading Project for VMware to GCP migration using M2VM and MCDC",
+      "Improve Automation for backup and restore on CloudSQL for Regulatory Compliance to OJK and BI",
+      "Research, Install and Manage BMC ControlM for automating toils in AS 400 system",
+      "Administer and maintain uptime Hybrid Cloud setup in GCP, AWS and On-Premise VMware",
+      "Automating Disaster Recovery process using BMC ControlM by integrating PowerCLI, Powershell, and Third Party API",
+      "Spearheading VMware Exit project to GCP",
       "Maintain and Administer multiple GKE cluster using Helm, Terraform, ArgoCD",
-      "Maintain, Administer and Improve ops related tools(Gitlab, ArgoCD, Helm, Terraform Modules, Vault)"
+      "Maintain, Administer and Improve ops related tools such as Gitlab, ArgoCD, Helm, Terraform, Vault, Dynatrace"
     ]
   },
   {
@@ -46,7 +46,8 @@ export const experiences = [
       "Leading and mentoring a team of Cloud engineer and Devops Engineer",
       "Creating and implementing policy for maintaining governance in cloud",
       "Spearheading project handover for a complex multi cloud setup",
-      "Maintaining cloud infrastructure in AWS, GCP with cloud native tooling such as ArgoCD, Terraform",
+      "Maintaining cloud infrastructure in AWS, GCP with cloud native tooling such as ArgoCD, Terraform, Jenkins, Gitlab",
+      "Creating Runbooks and Documentation for operation team on ArgoCD, Gitlab, Jenkins, Terraform, Kubernetes(GCP/AWS variant), etc"
     ]
   },
   {
