@@ -29,9 +29,11 @@ export const experiences = [
     responsibilities: [
       "Improve Automation for backup and restore on CloudSQL for Compliance",
       "Set up BMC ControlM for automating toils in AS 400 system",
-      "Administer and maintain both On-premises and Cloud based technologies",
-      "Automating Swingover and Swingback process using BMC ControlM",
-      "Spearheading Project for VMware to GCP migration using M2VM and MCDC"
+      "Administer and maintain Hybrid Cloud setup in GCP, AWS and On-Premise VMware",
+      "Automating Swingover and Swingback process using BMC ControlM with PowerCLI",
+      "Spearheading Project for VMware to GCP migration using M2VM and MCDC",
+      "Maintain and Administer multiple GKE cluster using Helm, Terraform, ArgoCD",
+      "Maintain, Administer and Improve ops related tools(Gitlab, ArgoCD, Helm, Terraform Modules, Vault)"
     ]
   },
   {
@@ -41,10 +43,10 @@ export const experiences = [
     date: "June 2024 — February 2025",
     responsibilities: [
       "Maintain uptime of services in a multi and hybrid cloud setup of a one of the biggest privately owned Telco company in Indonesia",
-      "Leading and mentoring a team of cloud engineer",
+      "Leading and mentoring a team of Cloud engineer and Devops Engineer",
       "Creating and implementing policy for maintaining governance in cloud",
       "Spearheading project handover for a complex multi cloud setup",
-      "Maintaining cloud infrastructure with cloud native tooling"
+      "Maintaining cloud infrastructure in AWS, GCP with cloud native tooling such as ArgoCD, Terraform",
     ]
   },
   {
