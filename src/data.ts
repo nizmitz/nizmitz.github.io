@@ -6,7 +6,7 @@ export const personalInfo = {
   phone: "+62 857 8289 1482",
   linkedin: "https://www.linkedin.com/in/fattah-emir-yanuar-7a1982173",
   github: "https://github.com/nizmitz",
-  profile: "Senior Cloud Infrastructure Engineer with over 6 years of expertise architecting, automating, and securing high-availability hybrid and multi-cloud environments (AWS, GCP, Alibaba Cloud, VMware, OpenShift). Distinguished by top-tier industry certifications (AWS SAPro, GCP PCA, CKA), I specialize in orchestrating robust containerized architectures with Kubernetes, driving infrastructure-as-code (IaC) via Terraform and Ansible, and implementing advanced CI/CD pipelines (GitLab CI, Jenkins). Proven track record of leveraging Vault and modern observability stacks to deliver resilient, compliant, and scalable enterprise solutions."
+  profile: "Senior Cloud Infrastructure Engineer with over 7 years of expertise automating and securing high-availability hybrid and multi-cloud environments (AWS, GCP, Alibaba Cloud, VMware, OpenShift). Certified across multiple providers including Google, Alibaba, AWS, HPE Storage, HashiCorp, Citrix, and Kubernetes/Linux Foundation. Experienced across Telco, Banking/FSI, and Consulting domains for organizations requiring 99.9% uptime availability, and has built and led a team of 8 engineers from the ground up. Off the clock, exploring NVIDIA AI Infrastructure and Cyber Security with a self-hosted LLM setup in a meager homelab."
 };
 
 export const skills = [
@@ -22,7 +22,7 @@ export const skills = [
 
 export const experiences = [
   {
-    title: "IT Data Center & Disaster Recovery",
+    title: "IT DC & DRC (Platform Engineer)",
     company: "PT Bank Jago Tbk",
     location: "Jakarta Metropolitan Area",
     date: "March 2025 — Present",
@@ -131,6 +131,8 @@ export const experiences = [
 ];
 
 export const certifications = [
+  { name: "Generative AI Leader", issuer: "Google", date: "Jul 2026 — Jul 2029" },
+  { name: "Google Cloud Certified Professional Cloud DevOps Engineer", issuer: "Google", date: "Jul 2026 — Jul 2028" },
   { name: "KCSA: Kubernetes and Cloud Native Security Associate", issuer: "The Linux Foundation", date: "Nov 2025 — Nov 2027" },
   { name: "KCNA: Kubernetes and Cloud Native Associate", issuer: "The Linux Foundation", date: "Nov 2025 — Nov 2027" },
   { name: "IELTS Academic", issuer: "British Council", date: "Aug 2025 — Aug 2027" },
