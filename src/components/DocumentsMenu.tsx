@@ -34,7 +34,7 @@ export function DocumentsMenu() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg transition-colors"
+        className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-strong text-paper rounded-full transition-colors"
       >
         <FileText size={16} />
         <span>Documents</span>
@@ -45,17 +45,17 @@ export function DocumentsMenu() {
         <>
           {/* click-away layer */}
           <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
-          <div className="absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-200 p-4 z-50 text-left">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 mb-2">Résumé format</p>
+          <div className="absolute right-0 mt-2 w-72 bg-paper-card rounded-xl shadow-xl border border-line p-4 z-50 text-left">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-3">Résumé format</p>
             <div className="space-y-1 mb-4">
               {(Object.keys(FORMAT_LABELS) as ResumeFormat[]).map((f) => (
-                <label key={f} className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+                <label key={f} className="flex items-center gap-2 text-sm text-ink cursor-pointer">
                   <input
                     type="radio"
                     name="resume-format"
                     checked={format === f}
                     onChange={() => setFormat(f)}
-                    className="accent-indigo-600"
+                    className="accent-[#0e5a54]"
                   />
                   {FORMAT_LABELS[f]}
                 </label>
@@ -63,7 +63,7 @@ export function DocumentsMenu() {
             </div>
 
             <label
-              className={`flex items-center gap-2 text-sm mb-4 ${sublinesAllowed ? 'text-slate-700 cursor-pointer' : 'text-slate-300 cursor-not-allowed'}`}
+              className={`flex items-center gap-2 text-sm mb-4 ${sublinesAllowed ? 'text-ink cursor-pointer' : 'text-muted/50 cursor-not-allowed'}`}
               title={sublinesAllowed ? '' : 'Company descriptions apply to the International format only'}
             >
               <input
@@ -71,7 +71,7 @@ export function DocumentsMenu() {
                 checked={sublinesAllowed && sublines}
                 disabled={!sublinesAllowed}
                 onChange={(e) => setSublines(e.target.checked)}
-                className="accent-indigo-600"
+                className="accent-[#0e5a54]"
               />
               Include company descriptions
             </label>
@@ -81,21 +81,21 @@ export function DocumentsMenu() {
                 label="PDF"
                 fileName={resumeFileName(options, 'pdf')}
                 generate={genPdf(options)}
-                className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-slate-900 hover:bg-slate-800 disabled:opacity-60 text-white text-sm rounded-lg transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-ink hover:opacity-90 disabled:opacity-60 text-paper text-sm rounded-lg transition-colors"
               />
               <DownloadButton
                 label="Word"
                 fileName={resumeFileName(options, 'docx')}
                 generate={genDocx(options)}
-                className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white text-sm rounded-lg transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-accent hover:bg-accent-strong disabled:opacity-60 text-paper text-sm rounded-lg transition-colors"
               />
             </div>
 
-            <div className="border-t border-slate-100 pt-3">
+            <div className="border-t border-line pt-3">
               <button
                 type="button"
                 onClick={() => { setOpen(false); setCoverOpen(true); }}
-                className="w-full flex items-center justify-center gap-2 px-3 py-2 border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 text-slate-700 text-sm rounded-lg transition-colors"
+                className="w-full flex items-center justify-center gap-2 px-3 py-2 border border-line hover:border-accent hover:text-accent text-ink text-sm rounded-lg transition-colors"
               >
                 <FileText size={14} />
                 Cover letter…

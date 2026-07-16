@@ -1,10 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Instrument+Sans:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+
+  --color-paper: #faf7f1;
+  --color-paper-card: #fffdf9;
+  --color-ink: #1a1712;
+  --color-muted: #6b6459;
+  --color-line: #e7e0d5;
+  --color-accent: #0e5a54;
+  --color-accent-strong: #0a423e;
+  --color-accent-soft: #e4efed;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Editorial display face: optical sizing on for the large serif headings. */
+.font-display {
+  font-optical-sizing: auto;
 }
