@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { DownloadButton } from './DownloadButton';
 import type { CoverLetterInput } from '../utils/coverLetter';
@@ -26,9 +27,9 @@ export function CoverLetterForm({ onClose }: { onClose: () => void }) {
 
   const fileSlug = (company.trim() || 'Application').replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').slice(0, 40);
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4"
       onClick={onClose}
     >
       <div
@@ -86,6 +87,7 @@ export function CoverLetterForm({ onClose }: { onClose: () => void }) {
           />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

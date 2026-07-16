@@ -23,7 +23,7 @@ const GRAY = '666666';
 const RIGHT_TAB = 9638; // ~A4 content width in twips, for right-aligned dates
 
 const RIREKISHO_MOTIVATION =
-  'Eager to bring my multi-cloud infrastructure and reliability engineering experience to a forward-thinking organization in Japan, and to grow alongside a team that values automation, security, and operational excellence. (Tailor per application.)';
+  'Eager to bring my multi-cloud infrastructure and reliability engineering experience to a forward-thinking organization in Japan, and to grow alongside a team that values automation, security, and operational excellence.';
 
 /** Section heading: accent, bold, with a bottom border — mirrors PDF sectionTitle. */
 function sectionTitle(text: string): Paragraph {
@@ -165,7 +165,7 @@ function languagesSection(withCefr = false): Paragraph[] {
           color: ACCENT,
           size: 20,
         }),
-        ...(lang.detail ? [new TextRun({ text: `  (${lang.detail})`, color: GRAY, size: 18 })] : []),
+        ...(!withCefr && lang.detail ? [new TextRun({ text: `  (${lang.detail})`, color: GRAY, size: 18 })] : []),
       ],
     }));
   });

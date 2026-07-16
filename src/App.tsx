@@ -58,7 +58,7 @@ function App() {
             <h2 className="text-2xl sm:text-3xl text-slate-600 font-medium mb-8">
               {personalInfo.title}
             </h2>
-            <p className="text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl">
+            <p className="text-lg text-slate-600 leading-normal mb-10 max-w-2xl">
               {personalInfo.profile.split('\n')[0]}
             </p>
             <div className="flex flex-wrap items-center gap-4">

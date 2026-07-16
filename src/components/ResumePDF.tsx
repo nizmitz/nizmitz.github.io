@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
 
 // Generic per-application motivation line for the Japanese rirekisho format.
 const RIREKISHO_MOTIVATION =
-  'Eager to bring my multi-cloud infrastructure and reliability engineering experience to a forward-thinking organization in Japan, and to grow alongside a team that values automation, security, and operational excellence. (Tailor per application.)';
+  'Eager to bring my multi-cloud infrastructure and reliability engineering experience to a forward-thinking organization in Japan, and to grow alongside a team that values automation, security, and operational excellence.';
 
 // ---- Shared section renderers -------------------------------------------------
 
@@ -274,7 +274,7 @@ const LanguagesSection = ({ withCefr }: { withCefr?: boolean }) => (
             {withCefr ? `${lang.proficiency} (CEFR ${lang.cefr})` : lang.proficiency}
           </Text>
         </View>
-        {lang.detail && <Text style={styles.langDetail}>{lang.detail}</Text>}
+        {!withCefr && lang.detail && <Text style={styles.langDetail}>{lang.detail}</Text>}
       </View>
     ))}
   </View>
