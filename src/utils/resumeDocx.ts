@@ -181,6 +181,7 @@ function bodyFor(options: ResumeOptions): Paragraph[] {
         ...profileSection('About Me'),
         ...experienceSection('Work Experience', false),
         ...educationSection(),
+        ...certSection('Certifications'),
         ...skillsSection(),
         ...languagesSection(true),
       ];

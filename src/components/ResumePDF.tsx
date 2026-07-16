@@ -307,6 +307,7 @@ const EuropassBody = () => (
     <ProfileSection title="About Me" />
     <ExperienceSection title="Work Experience" showSublines={false} />
     <EducationSection />
+    <CertSection title="Certifications" />
     <SkillsSection />
     <LanguagesSection withCefr />
   </>
