@@ -5,25 +5,28 @@ import { DEFAULT_RESUME_OPTIONS, ResumeOptions } from '../utils/resumeOptions';
 
 const styles = StyleSheet.create({
   page: {
-    padding: 30,
+    padding: 26,
     fontFamily: 'Helvetica',
-    fontSize: 10,
+    fontSize: 9,
+    lineHeight: 1.1,
     color: '#333',
   },
   header: {
-    marginBottom: 20,
+    marginBottom: 12,
     textAlign: 'center',
   },
   name: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#0056b3',
-    marginBottom: 5,
+    marginBottom: 3,
+    lineHeight: 1.3,
   },
   title: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 3,
+    lineHeight: 1.3,
     textTransform: 'uppercase',
   },
   contact: {
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
     textDecoration: 'none',
   },
   section: {
-    marginBottom: 15,
+    marginBottom: 9,
   },
   sectionTitle: {
     fontSize: 12,
@@ -49,12 +52,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#0056b3',
     paddingBottom: 2,
-    marginBottom: 8,
+    marginBottom: 6,
     textTransform: 'uppercase',
   },
   text: {
-    marginBottom: 4,
-    lineHeight: 1.4,
+    marginBottom: 3,
   },
   skillsGrid: {
     flexDirection: 'row',
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   experienceItem: {
-    marginBottom: 10,
+    marginBottom: 7,
   },
   expHeader: {
     flexDirection: 'row',
@@ -80,17 +82,17 @@ const styles = StyleSheet.create({
   },
   expCompany: {
     fontStyle: 'italic',
-    marginBottom: 4,
+    marginBottom: 2,
   },
   expSubline: {
     fontSize: 9,
     color: '#666',
     fontStyle: 'italic',
-    marginBottom: 3,
+    marginBottom: 2,
   },
   bulletPoint: {
     flexDirection: 'row',
-    marginBottom: 2,
+    marginBottom: 1.5,
   },
   bullet: {
     width: 10,
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
   certItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 4,
+    marginBottom: 2,
   },
   certName: {
     fontWeight: 'bold',
@@ -173,14 +175,14 @@ const Header = ({ options }: { options: ResumeOptions }) => (
 
 const ProfileSection = ({ title }: { title: string }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle}>{title}</Text>
+    <Text style={styles.sectionTitle} minPresenceAhead={22}>{title}</Text>
     <Text style={styles.text}>{personalInfo.profile}</Text>
   </View>
 );
 
 const SkillsSection = () => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle}>Technical Skills</Text>
+    <Text style={styles.sectionTitle} minPresenceAhead={22}>Technical Skills</Text>
     <View style={styles.skillsGrid}>
       {skills.map((skill, i) => (
         <Text key={i} style={styles.skillItem}>{skill.name}</Text>
@@ -201,7 +203,7 @@ const ExperienceSection = ({
   const list = chronological ? [...experiences].reverse() : experiences;
   return (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle}>{title}</Text>
+      <Text style={styles.sectionTitle} minPresenceAhead={22}>{title}</Text>
       {list.map((exp, i) => (
         <View key={i} style={styles.experienceItem}>
           <View style={styles.expHeader}>
@@ -226,7 +228,7 @@ const ExperienceSection = ({
 
 const CertSection = ({ title }: { title: string }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle}>{title}</Text>
+    <Text style={styles.sectionTitle} minPresenceAhead={22}>{title}</Text>
     {certifications.map((cert, i) => (
       <View key={i} style={styles.certItem}>
         <Text style={styles.certName}>{cert.name}, {cert.issuer}</Text>
@@ -240,7 +242,7 @@ const EducationSection = ({ chronological }: { chronological?: boolean }) => {
   const list = chronological ? [...education].reverse() : education;
   return (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle}>Education</Text>
+      <Text style={styles.sectionTitle} minPresenceAhead={22}>Education</Text>
       {list.map((edu, i) => (
         <View key={i} style={styles.eduItem}>
           <View style={styles.expHeader}>
@@ -265,7 +267,7 @@ const EducationSection = ({ chronological }: { chronological?: boolean }) => {
 
 const LanguagesSection = ({ withCefr }: { withCefr?: boolean }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle}>Languages</Text>
+    <Text style={styles.sectionTitle} minPresenceAhead={22}>Languages</Text>
     {languages.map((lang, i) => (
       <View key={i}>
         <View style={styles.langItem}>
@@ -282,7 +284,7 @@ const LanguagesSection = ({ withCefr }: { withCefr?: boolean }) => (
 
 const SimpleTextSection = ({ title, body }: { title: string; body: string }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle}>{title}</Text>
+    <Text style={styles.sectionTitle} minPresenceAhead={22}>{title}</Text>
     <Text style={styles.text}>{body}</Text>
   </View>
 );
