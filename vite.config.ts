@@ -26,18 +26,17 @@ export default defineConfig(() => {
     build: {
       rollupOptions: {
         output: {
+          // Only bucket the eagerly-loaded UI libs. Everything else (notably the
+          // @react-pdf and docx graphs, which are only reached via dynamic import) is
+          // left to Rollup so it stays in automatically-split lazy chunks — a catch-all
+          // 'vendor' would mix eager deps (scheduler) with lazy ones and force both eager.
           manualChunks(id) {
-            if (id.includes('node_modules')) {
-              if (id.includes('@react-pdf/renderer')) {
-                return 'vendor-pdf';
-              }
-              if (id.includes('react') || id.includes('react-dom')) {
-                return 'vendor-react';
-              }
-              if (id.includes('lucide-react') || id.includes('motion')) {
-                return 'vendor-ui';
-              }
-              return 'vendor';
+            if (!id.includes('node_modules')) return;
+            if (id.includes('/react-dom/') || id.includes('/react/') || id.includes('/scheduler/')) {
+              return 'vendor-react';
+            }
+            if (id.includes('lucide-react') || id.includes('/motion/')) {
+              return 'vendor-ui';
             }
           },
         },

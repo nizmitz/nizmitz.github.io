@@ -76,6 +76,12 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     marginBottom: 4,
   },
+  expSubline: {
+    fontSize: 9,
+    color: '#666',
+    fontStyle: 'italic',
+    marginBottom: 3,
+  },
   bulletPoint: {
     flexDirection: 'row',
     marginBottom: 2,
@@ -172,6 +178,9 @@ export const ResumePDF = () => (
               <Text style={styles.expDate}>{exp.date}</Text>
             </View>
             <Text style={styles.expCompany}>{exp.location}</Text>
+            {exp.sublines?.map((line, k) => (
+              <Text key={k} style={styles.expSubline}>{line}</Text>
+            ))}
             {exp.responsibilities.map((resp, j) => (
               <View key={j} style={styles.bulletPoint}>
                 <Text style={styles.bullet}>•</Text>

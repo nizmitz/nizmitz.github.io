@@ -20,7 +20,16 @@ export const skills = [
   { name: "Ansible", icon: "Terminal" }
 ];
 
-export const experiences = [
+export interface Experience {
+  title: string;
+  company: string;
+  location: string;
+  date: string;
+  sublines?: string[];
+  responsibilities: string[];
+}
+
+export const experiences: Experience[] = [
   {
     title: "IT DC & DRC (Platform Engineer)",
     company: "PT Bank Jago Tbk",
@@ -41,6 +50,9 @@ export const experiences = [
     company: "Amdocs",
     location: "Jakarta, Indonesia",
     date: "June 2024 — February 2025",
+    sublines: [
+      "A multinational company providing core charging and billing to the 2 biggest telco in Indonesia"
+    ],
     responsibilities: [
       "Maintain uptime of services in a multi and hybrid cloud setup of a one of the biggest privately owned Telco company in Indonesia",
       "Leading and mentoring a team of Cloud engineer and Devops Engineer",

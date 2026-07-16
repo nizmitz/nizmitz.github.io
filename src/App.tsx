@@ -1,11 +1,22 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Mail, Download, MapPin, Briefcase, Award, GraduationCap, Code2, Globe } from 'lucide-react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { Mail, MapPin, Briefcase, Award, GraduationCap, Code2, Globe } from 'lucide-react';
 import { personalInfo, skills, experiences, certifications, education, languages } from './data';
-import { ResumePDF } from './components/ResumePDF';
 import { ContactForm } from './components/ContactForm';
 import { SkillIcon } from './components/SkillIcon';
+import { DownloadButton } from './components/DownloadButton';
+
+// Lazily generate the resume files so @react-pdf and docx stay out of the initial bundle.
+// Each generator sits behind a single dynamic import so its heavy lib is a lazy chunk.
+const generatePdf = async (): Promise<Blob> => {
+  const { buildResumePdf } = await import('./utils/resumePdf');
+  return buildResumePdf();
+};
+
+const generateDocx = async (): Promise<Blob> => {
+  const { buildResumeDocx } = await import('./utils/resumeDocx');
+  return buildResumeDocx();
+};
 
 // Inline SVG icons to replace removed lucide-react exports
 const GithubIcon = ({ size = 20 }: { size?: number }) => (
@@ -32,18 +43,18 @@ function App() {
             <a href="#experience" className="hover:text-indigo-600 transition-colors hidden sm:block">Experience</a>
             <a href="#skills" className="hover:text-indigo-600 transition-colors hidden sm:block">Skills</a>
             <a href="#contact" className="hover:text-indigo-600 transition-colors hidden sm:block">Contact</a>
-            <PDFDownloadLink
-              document={<ResumePDF />}
+            <DownloadButton
+              label="PDF"
               fileName="Fattah_Emir_Yanuar_Resume.pdf"
-              className="flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg transition-colors"
-            >
-              {({ loading }) => (
-                <>
-                  <Download size={16} />
-                  <span>{loading ? 'Generating...' : 'Resume'}</span>
-                </>
-              )}
-            </PDFDownloadLink>
+              generate={generatePdf}
+              className="flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 disabled:opacity-60 text-white rounded-lg transition-colors"
+            />
+            <DownloadButton
+              label="Word"
+              fileName="Fattah_Emir_Yanuar_Resume.docx"
+              generate={generateDocx}
+              className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white rounded-lg transition-colors"
+            />
           </div>
         </div>
       </nav>
@@ -133,6 +144,9 @@ function App() {
                         {exp.location}
                       </div>
                     </div>
+                    {exp.sublines?.map((line, k) => (
+                      <p key={k} className="text-sm italic text-slate-500 mb-2">{line}</p>
+                    ))}
                     <ul className="space-y-3">
                       {exp.responsibilities.map((resp, i) => (
                         <li key={i} className="flex items-start gap-3 text-slate-600 leading-relaxed">
