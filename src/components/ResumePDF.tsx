@@ -1,6 +1,7 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
 import { personalInfo, skills, experiences, certifications, education, languages } from '../data';
+import { DEFAULT_RESUME_OPTIONS, ResumeOptions } from '../utils/resumeOptions';
 
 const styles = StyleSheet.create({
   page: {
@@ -28,6 +29,11 @@ const styles = StyleSheet.create({
   contact: {
     fontSize: 10,
     marginBottom: 2,
+  },
+  personalLine: {
+    fontSize: 9,
+    color: '#555',
+    marginTop: 2,
   },
   link: {
     color: '#0056b3',
@@ -144,97 +150,183 @@ const styles = StyleSheet.create({
   },
 });
 
-export const ResumePDF = () => (
-  <Document>
-    <Page size="A4" style={styles.page}>
-      <View style={styles.header}>
-        <Text style={styles.name}>{personalInfo.name}</Text>
-        <Text style={styles.title}>{personalInfo.title}</Text>
-        <Text style={styles.contact}>
-          {personalInfo.location} | <Link src={`mailto:${personalInfo.email}`} style={styles.link}>{personalInfo.email}</Link> | {personalInfo.phone}
-        </Text>
-      </View>
+// Generic per-application motivation line for the Japanese rirekisho format.
+const RIREKISHO_MOTIVATION =
+  'Eager to bring my multi-cloud infrastructure and reliability engineering experience to a forward-thinking organization in Japan, and to grow alongside a team that values automation, security, and operational excellence. (Tailor per application.)';
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Profile</Text>
-        <Text style={styles.text}>{personalInfo.profile}</Text>
-      </View>
+// ---- Shared section renderers -------------------------------------------------
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Technical Skills</Text>
-        <View style={styles.skillsGrid}>
-          {skills.map((skill, i) => (
-            <Text key={i} style={styles.skillItem}>{skill.name}</Text>
+const Header = ({ options }: { options: ResumeOptions }) => (
+  <View style={styles.header}>
+    <Text style={styles.name}>{personalInfo.name}</Text>
+    <Text style={styles.title}>{personalInfo.title}</Text>
+    <Text style={styles.contact}>
+      {personalInfo.location} | <Link src={`mailto:${personalInfo.email}`} style={styles.link}>{personalInfo.email}</Link> | {personalInfo.phone}
+    </Text>
+    {options.format !== 'international' && (
+      <Text style={styles.personalLine}>
+        Nationality: {personalInfo.nationality}  |  Gender: {personalInfo.gender}
+      </Text>
+    )}
+  </View>
+);
+
+const ProfileSection = ({ title }: { title: string }) => (
+  <View style={styles.section}>
+    <Text style={styles.sectionTitle}>{title}</Text>
+    <Text style={styles.text}>{personalInfo.profile}</Text>
+  </View>
+);
+
+const SkillsSection = () => (
+  <View style={styles.section}>
+    <Text style={styles.sectionTitle}>Technical Skills</Text>
+    <View style={styles.skillsGrid}>
+      {skills.map((skill, i) => (
+        <Text key={i} style={styles.skillItem}>{skill.name}</Text>
+      ))}
+    </View>
+  </View>
+);
+
+const ExperienceSection = ({
+  title,
+  showSublines,
+  chronological,
+}: {
+  title: string;
+  showSublines: boolean;
+  chronological?: boolean;
+}) => {
+  const list = chronological ? [...experiences].reverse() : experiences;
+  return (
+    <View style={styles.section}>
+      <Text style={styles.sectionTitle}>{title}</Text>
+      {list.map((exp, i) => (
+        <View key={i} style={styles.experienceItem}>
+          <View style={styles.expHeader}>
+            <Text style={styles.expTitle}>{exp.title}, {exp.company}</Text>
+            <Text style={styles.expDate}>{exp.date}</Text>
+          </View>
+          <Text style={styles.expCompany}>{exp.location}</Text>
+          {showSublines && exp.sublines?.map((line, k) => (
+            <Text key={k} style={styles.expSubline}>{line}</Text>
+          ))}
+          {exp.responsibilities.map((resp, j) => (
+            <View key={j} style={styles.bulletPoint}>
+              <Text style={styles.bullet}>•</Text>
+              <Text style={styles.bulletText}>{resp}</Text>
+            </View>
           ))}
         </View>
-      </View>
+      ))}
+    </View>
+  );
+};
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Professional Experience</Text>
-        {experiences.map((exp, i) => (
-          <View key={i} style={styles.experienceItem}>
-            <View style={styles.expHeader}>
-              <Text style={styles.expTitle}>{exp.title}, {exp.company}</Text>
-              <Text style={styles.expDate}>{exp.date}</Text>
-            </View>
-            <Text style={styles.expCompany}>{exp.location}</Text>
-            {exp.sublines?.map((line, k) => (
-              <Text key={k} style={styles.expSubline}>{line}</Text>
-            ))}
-            {exp.responsibilities.map((resp, j) => (
-              <View key={j} style={styles.bulletPoint}>
-                <Text style={styles.bullet}>•</Text>
-                <Text style={styles.bulletText}>{resp}</Text>
-              </View>
-            ))}
-          </View>
-        ))}
+const CertSection = ({ title }: { title: string }) => (
+  <View style={styles.section}>
+    <Text style={styles.sectionTitle}>{title}</Text>
+    {certifications.map((cert, i) => (
+      <View key={i} style={styles.certItem}>
+        <Text style={styles.certName}>{cert.name}, {cert.issuer}</Text>
+        <Text style={styles.certDate}>{cert.date}</Text>
       </View>
+    ))}
+  </View>
+);
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Certifications</Text>
-        {certifications.map((cert, i) => (
-          <View key={i} style={styles.certItem}>
-            <Text style={styles.certName}>{cert.name}, {cert.issuer}</Text>
-            <Text style={styles.certDate}>{cert.date}</Text>
+const EducationSection = ({ chronological }: { chronological?: boolean }) => {
+  const list = chronological ? [...education].reverse() : education;
+  return (
+    <View style={styles.section}>
+      <Text style={styles.sectionTitle}>Education</Text>
+      {list.map((edu, i) => (
+        <View key={i} style={styles.eduItem}>
+          <View style={styles.expHeader}>
+            <Text style={styles.eduSchool}>{edu.school}</Text>
+            <Text style={styles.expDate}>{edu.date}</Text>
           </View>
-        ))}
-      </View>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
+            <Text style={styles.eduDegree}>{edu.degree}</Text>
+            {edu.gpa && <Text style={styles.eduGpa}>GPA: {edu.gpa}</Text>}
+          </View>
+          {edu.activities && (
+            <Text style={styles.eduDetail}>Activities: {edu.activities}</Text>
+          )}
+          {edu.finalProject && (
+            <Text style={styles.eduDetail}>Final Project: {edu.finalProject}</Text>
+          )}
+        </View>
+      ))}
+    </View>
+  );
+};
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Education</Text>
-        {education.map((edu, i) => (
-          <View key={i} style={styles.eduItem}>
-            <View style={styles.expHeader}>
-              <Text style={styles.eduSchool}>{edu.school}</Text>
-              <Text style={styles.expDate}>{edu.date}</Text>
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
-              <Text style={styles.eduDegree}>{edu.degree}</Text>
-              {edu.gpa && <Text style={styles.eduGpa}>GPA: {edu.gpa}</Text>}
-            </View>
-            {edu.activities && (
-              <Text style={styles.eduDetail}>Activities: {edu.activities}</Text>
-            )}
-            {edu.finalProject && (
-              <Text style={styles.eduDetail}>Final Project: {edu.finalProject}</Text>
-            )}
-          </View>
-        ))}
+const LanguagesSection = ({ withCefr }: { withCefr?: boolean }) => (
+  <View style={styles.section}>
+    <Text style={styles.sectionTitle}>Languages</Text>
+    {languages.map((lang, i) => (
+      <View key={i}>
+        <View style={styles.langItem}>
+          <Text style={styles.langName}>{lang.name}</Text>
+          <Text style={styles.langProficiency}>
+            {withCefr ? `${lang.proficiency} (CEFR ${lang.cefr})` : lang.proficiency}
+          </Text>
+        </View>
+        {lang.detail && <Text style={styles.langDetail}>{lang.detail}</Text>}
       </View>
+    ))}
+  </View>
+);
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Languages</Text>
-        {languages.map((lang, i) => (
-          <View key={i}>
-            <View style={styles.langItem}>
-              <Text style={styles.langName}>{lang.name}</Text>
-              <Text style={styles.langProficiency}>{lang.proficiency}</Text>
-            </View>
-            {lang.detail && <Text style={styles.langDetail}>{lang.detail}</Text>}
-          </View>
-        ))}
-      </View>
+const SimpleTextSection = ({ title, body }: { title: string; body: string }) => (
+  <View style={styles.section}>
+    <Text style={styles.sectionTitle}>{title}</Text>
+    <Text style={styles.text}>{body}</Text>
+  </View>
+);
+
+// ---- Per-format bodies --------------------------------------------------------
+
+const InternationalBody = ({ options }: { options: ResumeOptions }) => (
+  <>
+    <ProfileSection title="Profile" />
+    <SkillsSection />
+    <ExperienceSection title="Professional Experience" showSublines={options.sublines} />
+    <CertSection title="Certifications" />
+    <EducationSection />
+    <LanguagesSection />
+  </>
+);
+
+const EuropassBody = () => (
+  <>
+    <ProfileSection title="About Me" />
+    <ExperienceSection title="Work Experience" showSublines={false} />
+    <EducationSection />
+    <SkillsSection />
+    <LanguagesSection withCefr />
+  </>
+);
+
+const RirekishoBody = () => (
+  <>
+    <EducationSection chronological />
+    <ExperienceSection title="Work History" showSublines={false} chronological />
+    <CertSection title="Qualifications" />
+    <SimpleTextSection title="Self-PR" body={personalInfo.profile} />
+    <SimpleTextSection title="Motivation" body={RIREKISHO_MOTIVATION} />
+  </>
+);
+
+export const ResumePDF = ({ options = DEFAULT_RESUME_OPTIONS }: { options?: ResumeOptions }) => (
+  <Document>
+    <Page size="A4" style={styles.page}>
+      <Header options={options} />
+      {options.format === 'international' && <InternationalBody options={options} />}
+      {options.format === 'europass' && <EuropassBody />}
+      {options.format === 'rirekisho' && <RirekishoBody />}
     </Page>
   </Document>
 );

@@ -6,6 +6,8 @@ export const personalInfo = {
   phone: "+62 857 8289 1482",
   linkedin: "https://www.linkedin.com/in/fattah-emir-yanuar-7a1982173",
   github: "https://github.com/nizmitz",
+  nationality: "Indonesian",
+  gender: "Male",
   profile: "Senior Cloud Infrastructure Engineer with over 7 years of expertise automating and securing high-availability hybrid and multi-cloud environments (AWS, GCP, Alibaba Cloud, VMware, OpenShift). Certified across multiple providers including Google, Alibaba, AWS, HashiCorp, and Kubernetes/Linux Foundation. Experienced across Telco, Banking/FSI, and Consulting domains for organizations requiring 99.9% uptime availability, and has built and led a team of 8 engineers from the ground up. Outside of work, actively researching NVIDIA AI infrastructure and cybersecurity through a self-hosted LLM environment in a personal homelab."
 };
 
@@ -181,7 +183,7 @@ export const education = [
 ];
 
 export const languages = [
-  { name: "Indonesia", proficiency: "Native proficiency", detail: "" },
-  { name: "English", proficiency: "Professional proficiency", detail: "IELTS rating C1/7.5" },
-  { name: "Japan", proficiency: "Rudimentary", detail: "" }
+  { name: "Indonesia", proficiency: "Native proficiency", detail: "", cefr: "Native / C2" },
+  { name: "English", proficiency: "Professional proficiency", detail: "IELTS rating C1/7.5", cefr: "C1" },
+  { name: "Japan", proficiency: "Rudimentary", detail: "", cefr: "A1" }
 ];

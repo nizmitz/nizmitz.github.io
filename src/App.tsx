@@ -4,19 +4,7 @@ import { Mail, MapPin, Briefcase, Award, GraduationCap, Code2, Globe } from 'luc
 import { personalInfo, skills, experiences, certifications, education, languages } from './data';
 import { ContactForm } from './components/ContactForm';
 import { SkillIcon } from './components/SkillIcon';
-import { DownloadButton } from './components/DownloadButton';
-
-// Lazily generate the resume files so @react-pdf and docx stay out of the initial bundle.
-// Each generator sits behind a single dynamic import so its heavy lib is a lazy chunk.
-const generatePdf = async (): Promise<Blob> => {
-  const { buildResumePdf } = await import('./utils/resumePdf');
-  return buildResumePdf();
-};
-
-const generateDocx = async (): Promise<Blob> => {
-  const { buildResumeDocx } = await import('./utils/resumeDocx');
-  return buildResumeDocx();
-};
+import { DocumentsMenu } from './components/DocumentsMenu';
 
 // Inline SVG icons to replace removed lucide-react exports
 const GithubIcon = ({ size = 20 }: { size?: number }) => (
@@ -43,18 +31,7 @@ function App() {
             <a href="#experience" className="hover:text-indigo-600 transition-colors hidden sm:block">Experience</a>
             <a href="#skills" className="hover:text-indigo-600 transition-colors hidden sm:block">Skills</a>
             <a href="#contact" className="hover:text-indigo-600 transition-colors hidden sm:block">Contact</a>
-            <DownloadButton
-              label="PDF"
-              fileName="Fattah_Emir_Yanuar_Resume.pdf"
-              generate={generatePdf}
-              className="flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 disabled:opacity-60 text-white rounded-lg transition-colors"
-            />
-            <DownloadButton
-              label="Word"
-              fileName="Fattah_Emir_Yanuar_Resume.docx"
-              generate={generateDocx}
-              className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white rounded-lg transition-colors"
-            />
+            <DocumentsMenu />
           </div>
         </div>
       </nav>

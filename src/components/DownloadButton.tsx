@@ -8,17 +8,18 @@ interface DownloadButtonProps {
   /** Lazily generates the file. The heavy lib is dynamic-imported inside here. */
   generate: () => Promise<Blob>;
   className?: string;
+  disabled?: boolean;
 }
 
 /**
  * Generate-on-click download button with loading state.
  * Shared by the PDF and Word resume buttons so the loading/error/UI logic lives once.
  */
-export function DownloadButton({ label, fileName, generate, className }: DownloadButtonProps) {
+export function DownloadButton({ label, fileName, generate, className, disabled }: DownloadButtonProps) {
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
-    if (loading) return;
+    if (loading || disabled) return;
     setLoading(true);
     try {
       const blob = await generate();
@@ -35,7 +36,7 @@ export function DownloadButton({ label, fileName, generate, className }: Downloa
     <button
       type="button"
       onClick={handleClick}
-      disabled={loading}
+      disabled={loading || disabled}
       className={className}
     >
       <Download size={16} />
