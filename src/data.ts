@@ -6,7 +6,7 @@ export const personalInfo = {
   phone: "+62 857 8289 1482",
   linkedin: "https://www.linkedin.com/in/fattah-emir-yanuar-7a1982173",
   github: "https://github.com/nizmitz",
-  profile: "Senior Cloud Infrastructure Engineer with over 7 years of expertise automating and securing high-availability hybrid and multi-cloud environments (AWS, GCP, Alibaba Cloud, VMware, OpenShift). Certified across multiple providers including Google, Alibaba, AWS, HPE Storage, HashiCorp, Citrix, and Kubernetes/Linux Foundation. Experienced across Telco, Banking/FSI, and Consulting domains for organizations requiring 99.9% uptime availability, and has built and led a team of 8 engineers from the ground up. Off the clock, exploring NVIDIA AI Infrastructure and Cyber Security with a self-hosted LLM setup in a meager homelab."
+  profile: "Senior Cloud Infrastructure Engineer with over 7 years of expertise automating and securing high-availability hybrid and multi-cloud environments (AWS, GCP, Alibaba Cloud, VMware, OpenShift). Certified across multiple providers including Google, Alibaba, AWS, HashiCorp, and Kubernetes/Linux Foundation. Experienced across Telco, Banking/FSI, and Consulting domains for organizations requiring 99.9% uptime availability, and has built and led a team of 8 engineers from the ground up. Outside of work, actively researching NVIDIA AI infrastructure and cybersecurity through a self-hosted LLM environment in a personal homelab."
 };
 
 export const skills = [
@@ -35,31 +35,34 @@ export const experiences: Experience[] = [
     company: "PT Bank Jago Tbk",
     location: "Jakarta Metropolitan Area",
     date: "March 2025 — Present",
+    sublines: [
+      "PT Bank Jago Tbk is a pioneering technology-based bank listed on the Indonesia Stock Exchange and deeply embedded in the GoTo ecosystem (Gojek, GoPay, Tokopedia), delivering life-centric conventional and Sharia banking to over 17 million customers."
+    ],
     responsibilities: [
-      "Improve Automation for backup and restore on CloudSQL for Regulatory Compliance to OJK and BI",
-      "Research, Install and Manage BMC ControlM for automating toils in AS 400 system",
+      "Implemented automation for CloudSQL backup and restore, eliminating recurring monthly toil while maintaining compliance with OJK and BI regulations.",
+      "Led the implementation of BMC Control-M to automate operational toil across AS/400 and other systems, reducing human error and improving reliability.",
       "Administer and maintain uptime Hybrid Cloud setup in GCP, AWS and On-Premise VMware",
-      "Automating Disaster Recovery process using BMC ControlM by integrating PowerCLI, Powershell, and Third Party API",
-      "Spearheading VMware Exit project to GCP",
+      "Drove automation of the VMware Disaster Recovery process using BMC Control-M (integrating PowerCLI, PowerShell, and third-party APIs), cutting execution time, manual steps, and human error.",
+      "Spearheaded the VMware exit to GCP, mitigating a sharp cost increase driven by licensing price hikes.",
+      "Led a parallel VMware exit to Sangfor for workloads that cannot meet OJK compliance in public cloud, containing licensing cost increases while preserving regulatory compliance.",
       "Maintain and Administer multiple GKE cluster using Helm, Terraform, ArgoCD",
-      "Maintain, Administer and Improve ops related tools such as Gitlab, ArgoCD, Helm, Terraform, Vault, Dynatrace"
+      "Maintained and improved core platform tooling (GitLab, ArgoCD, Helm, Terraform, Vault, Dynatrace) used daily by a large engineering team to abstract infrastructure complexity and accelerate delivery."
     ]
   },
   {
     title: "Technology Specialist",
     company: "Amdocs",
-    location: "Jakarta, Indonesia",
+    location: "Remote",
     date: "June 2024 — February 2025",
     sublines: [
-      "A multinational company providing core charging and billing to the 2 biggest telco in Indonesia"
+      "Amdocs is a multinational provider of software and products for telecommunications operators; in Indonesia it delivers the core charging and billing systems for the largest state-owned telco (Telkomsel) and a leading private operator (XL)."
     ],
     responsibilities: [
-      "Maintain uptime of services in a multi and hybrid cloud setup of a one of the biggest privately owned Telco company in Indonesia",
-      "Leading and mentoring a team of Cloud engineer and Devops Engineer",
+      "Safeguarded the uptime of one of Indonesia's largest privately owned telcos, running across a multi-cloud and hybrid-cloud environment.",
+      "Founded, led, and mentored a strong team of Cloud and DevOps engineers managing the cloud infrastructure of Indonesia's largest telco (XL) at high uptime.",
       "Creating and implementing policy for maintaining governance in cloud",
-      "Spearheading project handover for a complex multi cloud setup",
-      "Maintaining cloud infrastructure in AWS, GCP with cloud native tooling such as ArgoCD, Terraform, Jenkins, Gitlab",
-      "Creating Runbooks and Documentation for operation team on ArgoCD, Gitlab, Jenkins, Terraform, Kubernetes(GCP/AWS variant), etc"
+      "Led the end-to-end handover of a complex multi-cloud environment, ensuring operational continuity and smooth knowledge transfer.",
+      "Operated AWS and GCP infrastructure with cloud-native tooling (ArgoCD, Terraform, Jenkins, GitLab, Kubernetes) and authored the runbooks and documentation enabling the operations team to run it."
     ]
   },
   {
@@ -67,41 +70,39 @@ export const experiences: Experience[] = [
     company: "DKATALIS",
     location: "Jakarta, Jakarta, Indonesia",
     date: "June 2022 — June 2024",
+    sublines: [
+      "DKatalis is the digital technology company behind Bank Jago — one of Indonesia's leading app-based digital banks — where a 500+ engineer organization has also delivered products such as the now-retired Amaan and the PX HR platform."
+    ],
     responsibilities: [
-      "Improve and Maintain current monitoring stack (ELK, Dynatrace, Cloud Monitor, Custom Bots)",
-      "Create alerting bots using Python to increase visibility in Postgres Database and Zombie Pods in Kubernetes",
-      "Maintain current cloud infrastructure on Alibaba Cloud using Terraform and GitLab-CI",
-      "Manage and Administer multiple Kubernetes Cluster using Helm and Terraform",
-      "Maintain and handle Debian/Ubuntu and CentOS operating system",
-      "Perform Patching and Security Scanning using ansible with custom script and open source script for UBUNTU-CIS-20 standard and compliance",
-      "Implemented Teleport Zero Trust as alternative to PAM system",
-      "Research on GitLab self managed instance, GitLab Container(grype), Secret, SAST/SAST IaC and Code Quality implementation.",
-      "Perform Incident Response on production security and system infrastructure",
-      "Perform cloud efficiency to reduce OPEX on cloud",
-      "Maintain Sonarqube and Nexus configuration",
-      "Maintain HashiCorp Vault configuration and improve secret injector to pods",
-      "Maintain configuration of Internal DNS and External DNS",
-      "Maintain Infrastructure on GCP using Terraform",
-      "Create and maintain terraform with blueprint and self service model",
-      "Administer and Maintain Istio Service Mesh in GKE"
+      "Sustained 99.9% uptime for Bank Jago's digital-banking platform on Google Cloud — GKE, Istio service mesh, ArgoCD, Helm, Terraform, and Vault-based secret injection.",
+      "Maintained 99.9% uptime for the Amaan platform on Alibaba Cloud, provisioned with Helm, Terraform, and Vault.",
+      "Built and maintained the observability stack (ELK, Dynatrace, Cloud Monitoring, custom bots), including Python alerting bots that surface PostgreSQL health and zombie-pod conditions across Kubernetes.",
+      "Codified infrastructure across both clouds with Terraform and GitLab CI — reusable blueprints for a self-service model — and maintained highly available DNS on Cloudflare for reliable service discovery and traffic routing.",
+      "Administered Debian/Ubuntu and CentOS fleets and automated patching and security scanning via Ansible to enforce CIS Ubuntu 20.04 hardening compliance.",
+      "Implemented Teleport as a Zero-Trust access solution, replacing traditional PAM.",
+      "Hardened the CI/CD pipeline on self-managed GitLab — container scanning (Grype), secret detection, SAST/IaC scanning, and code-quality gates — alongside SonarQube and Nexus.",
+      "Led incident response for production security and infrastructure events.",
+      "Drove cloud cost-optimization initiatives to reduce operational expenditure (OPEX)."
     ]
   },
   {
     title: "System Administrator",
     company: "Amdocs",
-    location: "Indonesia",
+    location: "Remote",
     date: "March 2021 — June 2022",
+    sublines: [
+      "Amdocs is a multinational provider of software and services for the world's leading telecommunications operators, supporting mission-critical systems for two of Indonesia's largest telcos."
+    ],
     responsibilities: [
-      "Implementing automation with Ansible Tower and Jenkins to reduce repetitive toil such as (FS Extension, Backup User, User Checking, User auditing, DR drill)",
+      "Built automation with Ansible Tower, Jenkins, and shell scripting to eliminate repetitive operational toil (filesystem extension, user backup/auditing, DR drills), freeing engineers for higher-value work and reducing human error.",
       "Maintain availability and perform troubleshooting for multiple regional sites of VMware product such as ESXi, vSAN, vCenter, SRM and vROps",
       "Maintain uptime and troubleshoot any cluster/platform level issue that happen in Red Hat Openshift cluster",
-      "Maintain, Tune and Administer RHEL 7/8 Linux to ensure performance and up-time of 99.9% of a high performance system of two of the biggest telco company in Indonesia",
+      "Administered and performance-tuned RHEL 7/8 Linux to sustain 99.9% uptime for high-performance systems serving two of Indonesia's largest telcos.",
       "Perform some security vulnerabilities scanning and perform remediation to affected system using ansible tower and Jenkins with custom playbook",
       "Standby for weekly on-call rotation",
       "Providing L2/L3 support to two of the biggest telecommunication company in Indonesia",
-      "Researching implementation of Terraform on GCP as per project basis",
-      "Scripting using shell and ansible to reduce toils",
-      "Maintain configuration and improve backup strategy of Bind DNS server"
+      "Piloted Terraform on GCP to introduce infrastructure-as-code on a per-project basis.",
+      "Maintained BIND DNS configuration and hardened its backup strategy for resilience."
     ]
   },
   {
@@ -109,11 +110,14 @@ export const experiences: Experience[] = [
     company: "PT. Astra Graphia Information Technology (AGIT)",
     location: "Greater Jakarta Area, Indonesia",
     date: "October 2019 — March 2021",
+    sublines: [
+      "AGIT is a leading Indonesian ICT and IT-infrastructure solutions provider, part of the Astra International group, serving enterprise clients across the country."
+    ],
     responsibilities: [
       "Implementing various storage and server solution which may vary among all brands depending on the customer needs",
-      "Migration of Vmware 6.7 to 7.0 in production environment including migration of local datastore to SAN datastore",
+      "Delivered a zero-downtime VMware upgrade for fintech client AstraPay, including migration from local datastore to SAN storage.",
       "Configuration of SAN over FC and ISCSI, with Brocade, Cisco MDS, and Dell switches",
-      "Installation of Vmware 7.0 (Vcenter + Vsphere) including Cluster configuration, Huawei Dorado v6 integration, Integrating NVMEoF end to end connection, Create powershell scripts to automate snapshots and backup of VM.",
+      "Deployed the VMware stack (vCenter + vSphere) for AstraPay — cluster configuration, Huawei Dorado V6 integration, and end-to-end NVMeoF connectivity — with zero service downtime.",
       "installation and Configuration of Hypervisor and HCI such as, HyperV, Nutanix, Sangfor, VMware",
       "Assist Network team with core routing and email delivery."
     ]
@@ -123,6 +127,9 @@ export const experiences: Experience[] = [
     company: "Universitas Gunadarma",
     location: "Indonesia",
     date: "March 2018 — October 2019",
+    sublines: [
+      "Universitas Gunadarma is one of Indonesia's prominent private universities, long recognized for its computer science and information technology programs."
+    ],
     responsibilities: [
       "Collaborate with team members in providing technical documentation and level 1 technical support to management level.",
       "Engaging and maintaining windows 2012 server and thick client.",
@@ -135,9 +142,12 @@ export const experiences: Experience[] = [
     company: "Wargaming",
     location: "Indonesia",
     date: "October 2011 — June 2012",
+    sublines: [
+      "Wargaming is a global game developer and publisher, best known for the free-to-play phenomenon World of Tanks, whose franchise has surpassed 350 million registered players worldwide."
+    ],
     responsibilities: [
-      "Localization of English contents to Indonesian language for World Of Tanks SEA",
-      "Translation contents are under NDA restriction"
+      "Localized English game content into Indonesian to enable World of Tanks' new South-East Asia (SEA) server, opening the title to Indonesian players.",
+      "Handled pre-release content under NDA."
     ]
   }
 ];
@@ -156,16 +166,7 @@ export const certifications = [
   { name: "AWS Certified Solutions Architect - Associate", issuer: "Amazon Web Services (AWS)", date: "Aug 2024 — Aug 2027" },
   { name: "HashiCorp Certified: Terraform Associate (003)", issuer: "HashiCorp", date: "Jul 2024 — Jul 2026" },
   { name: "Alibaba Cloud Certified Professional Big Data", issuer: "Alibaba Cloud", date: "Jul 2024 — Jul 2026" },
-  { name: "Alibaba Cloud Certified Associate Big Data", issuer: "Alibaba Cloud", date: "May 2024 — May 2026" },
-  { name: "Alibaba Cloud Certified Professional Cloud Computing", issuer: "Alibaba Cloud", date: "Mar 2024 — Mar 2026" },
-  { name: "Alibaba Cloud Certified Associate Cloud Computing", issuer: "Alibaba Cloud", date: "Feb 2024 — Feb 2026" },
-  { name: "Associate Cloud Engineer", issuer: "Google", date: "May 2021 — Apr 2024" },
-  { name: "Citrix Certified Associate - Virtualization (CCE - V)", issuer: "Citrix", date: "Aug 2020 — Jan 2023" },
-  { name: "HPE ASE - Storage Solutions Architect V3", issuer: "Hewlett Packard Enterprise", date: "Apr 2020 — Apr 2023" },
-  { name: "HPE Product Certified - OneView [2020]", issuer: "Hewlett Packard Enterprise", date: "Apr 2020 — Apr 2023" },
-  { name: "HPE ATP - Hybrid IT Solutions V2", issuer: "Hewlett Packard Enterprise", date: "Apr 2020 — Apr 2023" },
-  { name: "Microsoft Certified: Azure Fundamentals", issuer: "Microsoft", date: "Feb 2020 — No Expiration" },
-  { name: "MTA: Database Fundamentals - Certified 2019", issuer: "Microsoft", date: "Oct 2019 — No Expiration" }
+  { name: "Microsoft Certified: Azure Fundamentals", issuer: "Microsoft", date: "Feb 2020 — No Expiration" }
 ];
 
 export const education = [
