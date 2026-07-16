@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#0056b3',
     marginBottom: 5,
-    textTransform: 'uppercase',
   },
   title: {
     fontSize: 14,

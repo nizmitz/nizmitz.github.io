@@ -31,9 +31,7 @@ This repository contains the source code for my professional portfolio website, 
    ```bash
    npm install
    ```
-2. **Configure environment:**
-   Set the `GEMINI_API_KEY` in `.env.local` to your Gemini API key.
-3. **Run the development server:**
+2. **Run the development server:**
    ```bash
    npm run dev
    ```
@@ -46,7 +44,9 @@ Ensuring code quality through automated checks:
 - **Testing**: Run `npm run test` for unit tests powered by Vitest.
 - **CI/CD**: Pre-commit hooks via Husky ensure only quality code is committed.
 
-## 🐳 Docker Production Build
+## 🐳 Docker (Optional Local/Alternative Path)
+
+Production deployment is handled via GitHub Actions to GitHub Pages (see `.github/workflows/deploy.yml`). The Docker setup below is an optional alternative for local testing or self-hosting the built static site — it is not the production deploy path.
 
 The project uses a multi-stage Docker build for an optimized and secure production image.
 
