@@ -70,7 +70,7 @@ export const experiences: Experience[] = [
   {
     title: "Site Reliability Engineer",
     company: "DKATALIS",
-    location: "Jakarta, Jakarta, Indonesia",
+    location: "Remote",
     date: "June 2022 — June 2024",
     sublines: [
       "DKatalis is the digital technology company behind Bank Jago — one of Indonesia's leading app-based digital banks — where a 500+ engineer organization has also delivered products such as the now-retired Amaan and the PX HR platform."
