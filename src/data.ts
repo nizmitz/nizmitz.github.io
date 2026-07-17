@@ -8,7 +8,7 @@ export const personalInfo = {
   github: "https://github.com/nizmitz",
   nationality: "Indonesian",
   gender: "Male",
-  profile: "Senior Cloud Infrastructure Engineer with over 7 years of expertise automating and securing high-availability hybrid and multi-cloud environments (AWS, GCP, Alibaba Cloud, VMware, OpenShift). Certified across multiple providers including Google, Alibaba, AWS, HashiCorp, and Kubernetes/Linux Foundation. Experienced across Telco, Banking/FSI, and Consulting domains for organizations requiring 99.9% uptime availability, and has built and led a team of 8 engineers from the ground up. Outside of work, actively researching NVIDIA AI infrastructure and cybersecurity through a self-hosted LLM environment in a personal homelab."
+  profile: "Senior Cloud Infrastructure Engineer with 7+ years hardening banking and telco platforms at scale — serving tens of millions of users at 99.9% uptime — across AWS, GCP, Alibaba Cloud, VMware, and OpenShift. Backed by 14 active certifications across Google, AWS, Alibaba Cloud, HashiCorp, and the Linux Foundation, with a track record of driving governance and cross-functional ownership in regulated, high-stakes environments. Built and led a team of 8 engineers from the ground up while operating as a proven remote-first collaborator across distributed, async teams. Outside of work, actively researching NVIDIA AI infrastructure and cybersecurity through a self-hosted LLM environment running quantized 3–7B models in a personal homelab."
 };
 
 export const skills = [
@@ -16,8 +16,8 @@ export const skills = [
   { name: "GCP", icon: "Cloud" },
   { name: "Kubernetes", icon: "Ship" },
   { name: "AWS", icon: "CloudLightning" },
-  { name: "Red Hat Openshift", icon: "Layers" },
-  { name: "Hashicorp", icon: "Lock" },
+  { name: "Red Hat OpenShift", icon: "Layers" },
+  { name: "HashiCorp", icon: "Lock" },
   { name: "Git", icon: "GitBranch" },
   { name: "Ansible", icon: "Terminal" }
 ];
@@ -41,14 +41,13 @@ export const experiences: Experience[] = [
       "PT Bank Jago Tbk is a pioneering technology-based bank listed on the Indonesia Stock Exchange and deeply embedded in the GoTo ecosystem (Gojek, GoPay, Tokopedia), delivering life-centric conventional and Sharia banking to over 17 million customers."
     ],
     responsibilities: [
-      "Implemented automation for CloudSQL backup and restore, eliminating recurring monthly toil while maintaining compliance with OJK and BI regulations.",
-      "Led the implementation of BMC Control-M to automate operational toil across AS/400 and other systems, reducing human error and improving reliability.",
-      "Administered and maintained a hybrid-cloud environment spanning GCP, AWS, and on-premise VMware to ensure continuous uptime.",
-      "Drove automation of the VMware Disaster Recovery process using BMC Control-M (integrating PowerCLI, PowerShell, and third-party APIs), cutting execution time, manual steps, and human error.",
-      "Spearheaded the VMware exit to GCP, mitigating a sharp cost increase driven by licensing price hikes.",
-      "Led a parallel VMware exit to Sangfor for workloads that cannot meet OJK compliance in public cloud, containing licensing cost increases while preserving regulatory compliance.",
-      "Operated multiple GKE clusters using Helm, Terraform, ArgoCD, Atlantis, and Istio.",
-      "Maintained and improved core platform tooling (GitLab, ArgoCD, Helm, Terraform, Vault, Dynatrace) used daily by a large engineering team to abstract infrastructure complexity and accelerate delivery."
+      "Faced with a ~100% VMware licensing cost increase, drove the exit of on-premise workloads to GCP, containing infrastructure spend while modernizing the platform.",
+      "Led a parallel VMware exit to Sangfor (on-premise HCI platform) for workloads that cannot meet OJK/BI (Indonesia's financial regulators) compliance in public cloud, avoiding the doubled licensing cost while preserving regulatory compliance.",
+      "Automated the VMware Disaster Recovery process with BMC Control-M — integrating PowerCLI, PowerShell, and third-party APIs — cutting the SRM recovery step from 45–60 minutes to 15.",
+      "Automated CloudSQL backup and restore, eliminating ~4 hours of recurring manual toil per month while sustaining compliance with OJK and BI regulations.",
+      "Led the rollout of BMC Control-M to automate operational toil across AS/400 and other systems, eliminating a recurring 8-hour manual monitoring shift and cutting human error.",
+      "Operated a hybrid-cloud environment (GCP, AWS, on-premise VMware) and 13 GKE clusters running 100+ microservices, using Helm, Terraform, ArgoCD, Atlantis, and Istio to sustain continuous uptime.",
+      "Maintained and improved core platform tooling (GitLab, ArgoCD, Helm, Terraform, Vault, Dynatrace) used daily by a 500-engineer organization to abstract infrastructure complexity and accelerate delivery."
     ]
   },
   {
@@ -60,11 +59,11 @@ export const experiences: Experience[] = [
       "Amdocs is a multinational provider of software and products for telecommunications operators; in Indonesia it delivers the core charging and billing systems for the largest state-owned telco (Telkomsel) and a leading private operator (XL)."
     ],
     responsibilities: [
-      "Safeguarded the uptime of one of Indonesia's largest privately owned telcos, running across a multi-cloud and hybrid-cloud environment.",
-      "Founded, led, and mentored a strong team of Cloud and DevOps engineers managing the cloud infrastructure of Indonesia's largest telco (XL) at high uptime.",
-      "Defined and enforced cloud governance policies to uphold security and compliance standards.",
-      "Led the end-to-end handover of a complex multi-cloud environment, ensuring operational continuity and smooth knowledge transfer.",
-      "Operated AWS and GCP infrastructure with cloud-native tooling (ArgoCD, Terraform, Jenkins, GitLab, Kubernetes) and authored the runbooks and documentation enabling the operations team to run it."
+      "Founded, led, and mentored a team of Cloud and DevOps engineers distributed across Indonesia and India, building the group from the ground up to manage the cloud infrastructure of one of Indonesia's largest privately owned telcos (XL) at high uptime.",
+      "Safeguarded the uptime of one of Indonesia's largest privately owned telcos across a multi-cloud and hybrid-cloud environment, delivered fully remote.",
+      "Authored the runbooks and documentation enabling the operations team to independently run AWS and GCP infrastructure, using ArgoCD, Terraform, Jenkins, GitLab, and Kubernetes.",
+      "Led the end-to-end handover of a complex multi-cloud environment in 3 months, ensuring operational continuity and smooth knowledge transfer.",
+      "Defined and enforced cloud governance policies to uphold security and compliance standards."
     ]
   },
   {
@@ -78,13 +77,13 @@ export const experiences: Experience[] = [
     responsibilities: [
       "Sustained 99.9% uptime for Bank Jago's digital-banking platform on Google Cloud — GKE, Istio service mesh, ArgoCD, Helm, Terraform, and Vault-based secret injection.",
       "Maintained 99.9% uptime for the Amaan platform on Alibaba Cloud, provisioned with Helm, Terraform, and Vault.",
-      "Built and maintained the observability stack (ELK, Dynatrace, Cloud Monitoring, custom bots), including Python alerting bots that surface PostgreSQL health and zombie-pod conditions across Kubernetes.",
+      "Identified and eliminated idle and oversized cloud resources across both clouds, cutting recurring cloud spend by 15–25%.",
+      "Hardened the CI/CD pipeline on self-managed GitLab — container scanning (Grype), secret detection, SAST/IaC scanning, and code-quality gates — alongside SonarQube and Nexus, closing security gaps before production.",
+      "Automated patching and security scanning across a 40-host Debian/Ubuntu and CentOS fleet via Ansible, enforcing CIS Ubuntu 20.04 hardening compliance.",
+      "Introduced Teleport as the organization's first Zero-Trust access layer, bringing PAM-grade control to production access and closing a standing attack-surface gap.",
       "Codified infrastructure across both clouds with Terraform and GitLab CI — reusable blueprints for a self-service model — and maintained highly available DNS on Cloudflare for reliable service discovery and traffic routing.",
-      "Administered Debian/Ubuntu and CentOS fleets and automated patching and security scanning via Ansible to enforce CIS Ubuntu 20.04 hardening compliance.",
-      "Implemented Teleport as a Zero-Trust access solution, replacing traditional PAM.",
-      "Hardened the CI/CD pipeline on self-managed GitLab — container scanning (Grype), secret detection, SAST/IaC scanning, and code-quality gates — alongside SonarQube and Nexus.",
-      "Led incident response for production security and infrastructure events.",
-      "Drove cloud cost-optimization initiatives to reduce operational expenditure (OPEX)."
+      "Built and maintained the observability stack (ELK, Dynatrace, Cloud Monitoring, custom Python alerting bots) surfacing PostgreSQL health and zombie-pod conditions across Kubernetes.",
+      "Led incident response for production security and infrastructure events."
     ]
   },
   {
@@ -97,14 +96,12 @@ export const experiences: Experience[] = [
     ],
     responsibilities: [
       "Built automation with Ansible Tower, Jenkins, and shell scripting to eliminate repetitive operational toil (filesystem extension, user backup/auditing, DR drills), freeing engineers for higher-value work and reducing human error.",
-      "Maintained availability and troubleshot multiple regional VMware sites (ESXi, vSAN, vCenter, SRM, vROps).",
+      "Sustained 99.9% uptime for high-performance RHEL 7/8 systems serving two of Indonesia's largest telcos through proactive performance tuning.",
       "Sustained uptime and resolved cluster- and platform-level issues across Red Hat OpenShift.",
-      "Administered and performance-tuned RHEL 7/8 Linux to sustain 99.9% uptime for high-performance systems serving two of Indonesia's largest telcos.",
-      "Performed security vulnerability scanning and remediation using Ansible Tower and Jenkins with custom playbooks.",
-      "Participated in a weekly on-call rotation for production support.",
-      "Provided L2/L3 support to two of Indonesia's largest telecommunications companies.",
       "Piloted Terraform on GCP to introduce infrastructure-as-code on a per-project basis.",
-      "Maintained BIND DNS configuration and hardened its backup strategy for resilience."
+      "On-call owner in a weekly production rotation, providing L2/L3 support to two of Indonesia's largest telecommunications companies.",
+      "Performed security vulnerability scanning and remediation using Ansible Tower and Jenkins with custom playbooks.",
+      "Maintained availability across multiple regional VMware sites (ESXi, vSAN, vCenter, SRM, vROps) and hardened the BIND DNS backup strategy for resilience."
     ]
   },
   {
@@ -116,10 +113,10 @@ export const experiences: Experience[] = [
       "AGIT is a leading Indonesian ICT and IT-infrastructure solutions provider, part of the Astra International group, serving enterprise clients across the country."
     ],
     responsibilities: [
-      "Implemented diverse multi-vendor storage and server solutions tailored to customer requirements.",
-      "Delivered a zero-downtime VMware upgrade for fintech client AstraPay, including migration from local datastore to SAN storage.",
-      "Configured SAN over Fibre Channel and iSCSI using Brocade, Cisco MDS, and Dell switches.",
+      "Delivered a zero-downtime VMware upgrade for fintech client AstraPay, migrating 30 TB from local datastore to SAN storage.",
       "Deployed the VMware stack (vCenter + vSphere) for AstraPay — cluster configuration, Huawei Dorado V6 integration, and end-to-end NVMeoF connectivity — with zero service downtime.",
+      "Configured SAN over Fibre Channel and iSCSI using Brocade, Cisco MDS, and Dell switches.",
+      "Implemented multi-vendor storage and server solutions across 30 client projects, tailored to each customer's requirements.",
       "Installed and configured hypervisor and HCI platforms including Hyper-V, Nutanix, Sangfor, and VMware.",
       "Supported the network team with core routing and email delivery."
     ]
@@ -134,8 +131,7 @@ export const experiences: Experience[] = [
     ],
     responsibilities: [
       "Collaborated with the team to deliver technical documentation and Level 1 support to management.",
-      "Maintained Windows Server 2012 and thick-client workstations.",
-      "Maintained the Sanako Study 1200 multimedia language lab and classroom-management systems.",
+      "Maintained Windows Server 2012 thick-client workstations and the Sanako Study 1200 multimedia language lab and classroom-management systems.",
       "Performed network hardware maintenance and troubleshooting."
     ]
   },
@@ -183,7 +179,7 @@ export const education = [
 ];
 
 export const languages = [
-  { name: "Indonesia", proficiency: "Native proficiency", detail: "", cefr: "Native / C2" },
+  { name: "Indonesian", proficiency: "Native proficiency", detail: "", cefr: "Native / C2" },
   { name: "English", proficiency: "Professional proficiency", detail: "IELTS rating C1/7.5", cefr: "C1" },
-  { name: "Japan", proficiency: "Rudimentary", detail: "", cefr: "A1" }
+  { name: "Japanese", proficiency: "Rudimentary", detail: "", cefr: "A1" }
 ];

@@ -12,11 +12,13 @@ This repository contains the source code for my professional portfolio website, 
 
 ## 🛠 Features
 
-- **Multi-Cloud Expertise**: Showcasing experience with AWS, GCP, and Alibaba Cloud.
-- **Infrastructure as Code**: Built with a focus on automation and scalability.
+- **Editorial Design**: A refined visual system built on Fraunces (display serif) and Instrument Sans, with a warm paper and teal color palette.
+- **Multi-Format Résumé Export**: Generate International, Europass (EU), or Japan rirekisho résumés as PDF or Word — built client-side on click via lazy-loaded chunks, no server round-trip.
+- **Cover Letter Generator**: A fillable form produces a matching cover letter alongside the résumé.
+- **Single Content Source**: All copy — profile, experience, skills, certifications — lives in `src/data.ts` and feeds both the website and every generated document.
 - **Dockerized**: Containerized for consistent development and production environments.
 - **Hardened Nginx**: Optimized for security and performance with Gzip compression and secure headers.
-- **automated Deployment**: Integrated with GitHub Actions for seamless delivery to GitHub Pages.
+- **Automated Deployment**: Integrated with GitHub Actions for seamless delivery to GitHub Pages.
 
 ## 💻 Local Development
 

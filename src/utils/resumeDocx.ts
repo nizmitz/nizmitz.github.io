@@ -20,7 +20,10 @@ import { DEFAULT_RESUME_OPTIONS, ResumeOptions } from './resumeOptions';
 // Matches the PDF accent colour (ResumePDF.tsx #0056b3).
 const ACCENT = '0056B3';
 const GRAY = '666666';
-const RIGHT_TAB = 9638; // ~A4 content width in twips, for right-aligned dates
+const RIGHT_TAB = 9026; // A4 content width in twips (11906 total − 2×1440 margins), for right-aligned dates
+
+// Strips the protocol (and leading "www.") for a compact display label.
+const displayUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '');
 
 const RIREKISHO_MOTIVATION =
   'Eager to bring my multi-cloud infrastructure and reliability engineering experience to a forward-thinking organization in Japan, and to grow alongside a team that values automation, security, and operational excellence.';
@@ -78,10 +81,19 @@ function headerBlock(options: ResumeOptions): Paragraph[] {
     }),
     new Paragraph({
       alignment: AlignmentType.CENTER,
-      spacing: { after: options.format === 'international' ? 120 : 20 },
+      spacing: { after: 20 },
       children: [new TextRun({
         text: `${personalInfo.location} | ${personalInfo.email} | ${personalInfo.phone}`,
         size: 20,
+      })],
+    }),
+    new Paragraph({
+      alignment: AlignmentType.CENTER,
+      spacing: { after: options.format === 'international' ? 120 : 20 },
+      children: [new TextRun({
+        text: `${displayUrl(personalInfo.linkedin)} | ${displayUrl(personalInfo.github)}`,
+        size: 18,
+        color: GRAY,
       })],
     }),
   ];
@@ -190,6 +202,7 @@ function bodyFor(options: ResumeOptions): Paragraph[] {
         ...educationSection(true),
         ...experienceSection('Work History', false, true),
         ...certSection('Qualifications'),
+        ...languagesSection(true),
         ...profileSection('Self-PR'),
         sectionTitle('Motivation'),
         para(RIREKISHO_MOTIVATION),

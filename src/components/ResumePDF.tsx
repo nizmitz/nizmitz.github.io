@@ -5,14 +5,14 @@ import { DEFAULT_RESUME_OPTIONS, ResumeOptions } from '../utils/resumeOptions';
 
 const styles = StyleSheet.create({
   page: {
-    padding: 26,
+    padding: 22,
     fontFamily: 'Helvetica',
     fontSize: 9,
     lineHeight: 1.1,
     color: '#333',
   },
   header: {
-    marginBottom: 12,
+    marginBottom: 9,
     textAlign: 'center',
   },
   name: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     textDecoration: 'none',
   },
   section: {
-    marginBottom: 9,
+    marginBottom: 7,
   },
   sectionTitle: {
     fontSize: 12,
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     color: '#0056b3',
     borderBottomWidth: 1,
     borderBottomColor: '#0056b3',
-    paddingBottom: 2,
-    marginBottom: 6,
+    paddingBottom: 1,
+    marginBottom: 4,
     textTransform: 'uppercase',
   },
   text: {
@@ -67,12 +67,12 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   experienceItem: {
-    marginBottom: 7,
+    marginBottom: 4,
   },
   expHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 2,
+    marginBottom: 1,
   },
   expTitle: {
     fontWeight: 'bold',
@@ -82,17 +82,17 @@ const styles = StyleSheet.create({
   },
   expCompany: {
     fontStyle: 'italic',
-    marginBottom: 2,
+    marginBottom: 1,
   },
   expSubline: {
     fontSize: 9,
     color: '#666',
     fontStyle: 'italic',
-    marginBottom: 2,
+    marginBottom: 1,
   },
   bulletPoint: {
     flexDirection: 'row',
-    marginBottom: 1.5,
+    marginBottom: 1,
   },
   bullet: {
     width: 10,
@@ -158,12 +158,18 @@ const RIREKISHO_MOTIVATION =
 
 // ---- Shared section renderers -------------------------------------------------
 
+// Strips the protocol (and leading "www.") for a compact display label.
+const displayUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '');
+
 const Header = ({ options }: { options: ResumeOptions }) => (
   <View style={styles.header}>
     <Text style={styles.name}>{personalInfo.name}</Text>
     <Text style={styles.title}>{personalInfo.title}</Text>
     <Text style={styles.contact}>
       {personalInfo.location} | <Link src={`mailto:${personalInfo.email}`} style={styles.link}>{personalInfo.email}</Link> | {personalInfo.phone}
+    </Text>
+    <Text style={styles.personalLine}>
+      <Link src={personalInfo.linkedin} style={styles.link}>{displayUrl(personalInfo.linkedin)}</Link> | <Link src={personalInfo.github} style={styles.link}>{displayUrl(personalInfo.github)}</Link>
     </Text>
     {options.format !== 'international' && (
       <Text style={styles.personalLine}>
@@ -175,14 +181,14 @@ const Header = ({ options }: { options: ResumeOptions }) => (
 
 const ProfileSection = ({ title }: { title: string }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle} minPresenceAhead={22}>{title}</Text>
+    <Text style={styles.sectionTitle} minPresenceAhead={40}>{title}</Text>
     <Text style={styles.text}>{personalInfo.profile}</Text>
   </View>
 );
 
 const SkillsSection = () => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle} minPresenceAhead={22}>Technical Skills</Text>
+    <Text style={styles.sectionTitle} minPresenceAhead={40}>Technical Skills</Text>
     <View style={styles.skillsGrid}>
       {skills.map((skill, i) => (
         <Text key={i} style={styles.skillItem}>{skill.name}</Text>
@@ -203,7 +209,7 @@ const ExperienceSection = ({
   const list = chronological ? [...experiences].reverse() : experiences;
   return (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle} minPresenceAhead={22}>{title}</Text>
+      <Text style={styles.sectionTitle} minPresenceAhead={40}>{title}</Text>
       {list.map((exp, i) => (
         <View key={i} style={styles.experienceItem}>
           <View style={styles.expHeader}>
@@ -228,7 +234,7 @@ const ExperienceSection = ({
 
 const CertSection = ({ title }: { title: string }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle} minPresenceAhead={22}>{title}</Text>
+    <Text style={styles.sectionTitle} minPresenceAhead={40}>{title}</Text>
     {certifications.map((cert, i) => (
       <View key={i} style={styles.certItem}>
         <Text style={styles.certName}>{cert.name}, {cert.issuer}</Text>
@@ -242,7 +248,7 @@ const EducationSection = ({ chronological }: { chronological?: boolean }) => {
   const list = chronological ? [...education].reverse() : education;
   return (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle} minPresenceAhead={22}>Education</Text>
+      <Text style={styles.sectionTitle} minPresenceAhead={40}>Education</Text>
       {list.map((edu, i) => (
         <View key={i} style={styles.eduItem}>
           <View style={styles.expHeader}>
@@ -267,16 +273,16 @@ const EducationSection = ({ chronological }: { chronological?: boolean }) => {
 
 const LanguagesSection = ({ withCefr }: { withCefr?: boolean }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle} minPresenceAhead={22}>Languages</Text>
+    <Text style={styles.sectionTitle} minPresenceAhead={40}>Languages</Text>
     {languages.map((lang, i) => (
-      <View key={i}>
-        <View style={styles.langItem}>
-          <Text style={styles.langName}>{lang.name}</Text>
-          <Text style={styles.langProficiency}>
-            {withCefr ? `${lang.proficiency} (CEFR ${lang.cefr})` : lang.proficiency}
-          </Text>
-        </View>
-        {!withCefr && lang.detail && <Text style={styles.langDetail}>{lang.detail}</Text>}
+      <View key={i} style={styles.langItem}>
+        <Text style={styles.langName}>
+          {lang.name}
+          {!withCefr && lang.detail ? ` — ${lang.detail}` : ''}
+        </Text>
+        <Text style={styles.langProficiency}>
+          {withCefr ? `${lang.proficiency} (CEFR ${lang.cefr})` : lang.proficiency}
+        </Text>
       </View>
     ))}
   </View>
@@ -284,7 +290,7 @@ const LanguagesSection = ({ withCefr }: { withCefr?: boolean }) => (
 
 const SimpleTextSection = ({ title, body }: { title: string; body: string }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle} minPresenceAhead={22}>{title}</Text>
+    <Text style={styles.sectionTitle} minPresenceAhead={40}>{title}</Text>
     <Text style={styles.text}>{body}</Text>
   </View>
 );
@@ -318,6 +324,7 @@ const RirekishoBody = () => (
     <EducationSection chronological />
     <ExperienceSection title="Work History" showSublines={false} chronological />
     <CertSection title="Qualifications" />
+    <LanguagesSection withCefr />
     <SimpleTextSection title="Self-PR" body={personalInfo.profile} />
     <SimpleTextSection title="Motivation" body={RIREKISHO_MOTIVATION} />
   </>

@@ -17,30 +17,35 @@ interface DownloadButtonProps {
  */
 export function DownloadButton({ label, fileName, generate, className, disabled }: DownloadButtonProps) {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleClick = async () => {
     if (loading || disabled) return;
+    setError(false);
     setLoading(true);
     try {
       const blob = await generate();
       downloadBlob(blob, fileName);
     } catch (err) {
       console.error(`Failed to generate ${fileName}`, err);
-      alert('Sorry, the download could not be generated. Please try again.');
+      setError(true);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      disabled={loading || disabled}
-      className={className}
-    >
-      <Download size={16} />
-      <span>{loading ? 'Generating…' : label}</span>
-    </button>
+    <>
+      <button
+        type="button"
+        onClick={handleClick}
+        disabled={loading || disabled}
+        className={className}
+      >
+        <Download size={16} />
+        <span>{loading ? 'Generating…' : label}</span>
+      </button>
+      {error && <span className="text-red-600 text-xs ml-2">Failed — retry</span>}
+    </>
   );
 }
