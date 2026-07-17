@@ -78,12 +78,10 @@ export const experiences: Experience[] = [
       "Sustained 99.9% uptime for Bank Jago's digital-banking platform on Google Cloud — GKE, Istio service mesh, ArgoCD, Helm, Terraform, and Vault-based secret injection.",
       "Maintained 99.9% uptime for the Amaan platform on Alibaba Cloud, provisioned with Helm, Terraform, and Vault.",
       "Identified and eliminated idle and oversized cloud resources across both clouds, cutting recurring cloud spend by 15–25%.",
-      "Hardened the CI/CD pipeline on self-managed GitLab — container scanning (Grype), secret detection, SAST/IaC scanning, and code-quality gates — alongside SonarQube and Nexus, closing security gaps before production.",
-      "Automated patching and security scanning across a 40-host Debian/Ubuntu and CentOS fleet via Ansible, enforcing CIS Ubuntu 20.04 hardening compliance.",
+      "Hardened the CI/CD pipeline on self-managed GitLab — container scanning (Grype), secret detection, SAST/IaC scanning, and code-quality gates alongside SonarQube and Nexus — plus Ansible-driven CIS Ubuntu 20.04 patching across a 40-host Debian/Ubuntu and CentOS fleet, closing security gaps before production.",
       "Introduced Teleport as the organization's first Zero-Trust access layer, bringing PAM-grade control to production access and closing a standing attack-surface gap.",
       "Codified infrastructure across both clouds with Terraform and GitLab CI — reusable blueprints for a self-service model — and maintained highly available DNS on Cloudflare for reliable service discovery and traffic routing.",
-      "Built and maintained the observability stack (ELK, Dynatrace, Cloud Monitoring, custom Python alerting bots) surfacing PostgreSQL health and zombie-pod conditions across Kubernetes.",
-      "Led incident response for production security and infrastructure events."
+      "Built the observability stack (ELK, Dynatrace, Cloud Monitoring, custom Python alerting bots) surfacing PostgreSQL health and zombie-pod conditions, and led incident response for production security and infrastructure events."
     ]
   },
   {
@@ -97,11 +95,8 @@ export const experiences: Experience[] = [
     responsibilities: [
       "Built automation with Ansible Tower, Jenkins, and shell scripting to eliminate repetitive operational toil (filesystem extension, user backup/auditing, DR drills), freeing engineers for higher-value work and reducing human error.",
       "Sustained 99.9% uptime for high-performance RHEL 7/8 systems serving two of Indonesia's largest telcos through proactive performance tuning.",
-      "Sustained uptime and resolved cluster- and platform-level issues across Red Hat OpenShift.",
-      "Piloted Terraform on GCP to introduce infrastructure-as-code on a per-project basis.",
-      "On-call owner in a weekly production rotation, providing L2/L3 support to two of Indonesia's largest telecommunications companies.",
-      "Performed security vulnerability scanning and remediation using Ansible Tower and Jenkins with custom playbooks.",
-      "Maintained availability across multiple regional VMware sites (ESXi, vSAN, vCenter, SRM, vROps) and hardened the BIND DNS backup strategy for resilience."
+      "Kept Red Hat OpenShift clusters and multiple regional VMware sites (ESXi, vSAN, vCenter, SRM, vROps) healthy, and hardened the BIND DNS backup strategy for resilience.",
+      "On-call owner in a weekly production rotation, providing L2/L3 support to two of Indonesia's largest telecommunications companies."
     ]
   },
   {
@@ -113,12 +108,9 @@ export const experiences: Experience[] = [
       "AGIT is a leading Indonesian ICT and IT-infrastructure solutions provider, part of the Astra International group, serving enterprise clients across the country."
     ],
     responsibilities: [
-      "Delivered a zero-downtime VMware upgrade for fintech client AstraPay, migrating 30 TB from local datastore to SAN storage.",
-      "Deployed the VMware stack (vCenter + vSphere) for AstraPay — cluster configuration, Huawei Dorado V6 integration, and end-to-end NVMeoF connectivity — with zero service downtime.",
-      "Configured SAN over Fibre Channel and iSCSI using Brocade, Cisco MDS, and Dell switches.",
+      "Delivered a zero-downtime VMware upgrade and full stack deployment (vCenter + vSphere) for fintech client AstraPay — migrating 30 TB to SAN storage with Huawei Dorado V6 integration and end-to-end NVMeoF connectivity.",
       "Implemented multi-vendor storage and server solutions across 30 client projects, tailored to each customer's requirements.",
-      "Installed and configured hypervisor and HCI platforms including Hyper-V, Nutanix, Sangfor, and VMware.",
-      "Supported the network team with core routing and email delivery."
+      "Configured SAN over Fibre Channel and iSCSI (Brocade, Cisco MDS, Dell) and deployed HCI platforms including Hyper-V, Nutanix, Sangfor, and VMware."
     ]
   },
   {
@@ -130,9 +122,7 @@ export const experiences: Experience[] = [
       "Universitas Gunadarma is one of Indonesia's prominent private universities, long recognized for its computer science and information technology programs."
     ],
     responsibilities: [
-      "Collaborated with the team to deliver technical documentation and Level 1 support to management.",
-      "Maintained Windows Server 2012 thick-client workstations and the Sanako Study 1200 multimedia language lab and classroom-management systems.",
-      "Performed network hardware maintenance and troubleshooting."
+      "Delivered technical documentation, Level 1 support, and upkeep of Windows Server 2012 labs and the Sanako Study 1200 multimedia classroom systems."
     ]
   },
   {
