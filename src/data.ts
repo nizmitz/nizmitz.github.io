@@ -110,7 +110,7 @@ export const experiences: Experience[] = [
   {
     title: "System Engineer",
     company: "PT. Astra Graphia Information Technology (AGIT)",
-    location: "Greater Jakarta Area, Indonesia",
+    location: "Jakarta Metropolitan Area",
     date: "October 2019 — March 2021",
     sublines: [
       "AGIT is a leading Indonesian ICT and IT-infrastructure solutions provider, part of the Astra International group, serving enterprise clients across the country."
