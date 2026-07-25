@@ -8,7 +8,7 @@ export const personalInfo = {
   github: "https://github.com/nizmitz",
   nationality: "Indonesian",
   gender: "Male",
-  profile: "Senior Cloud Infrastructure Engineer with 7+ years hardening banking and telco platforms at scale — serving tens of millions of users at 99.9% uptime — across AWS, GCP, Alibaba Cloud, VMware, and OpenShift. Backed by 14 active certifications across Google, AWS, Alibaba Cloud, HashiCorp, and the Linux Foundation, with a track record of driving governance and cross-functional ownership in regulated, high-stakes environments. Built and led a team of 8 engineers from the ground up while operating as a proven remote-first collaborator across distributed, async teams. Outside of work, actively researching NVIDIA AI infrastructure and cybersecurity through a self-hosted LLM environment running quantized 3–7B models in a personal homelab."
+  profile: "Senior Cloud Infrastructure Engineer with 7+ years hardening banking and telco platforms at scale — serving tens of millions of users at 99.9% uptime — across AWS, GCP, Alibaba Cloud, VMware, and OpenShift. Backed by 15 active certifications across Google, AWS, Alibaba Cloud, HashiCorp, and the Linux Foundation — including Linux Foundation Kubestronaut status for the full CNCF Kubernetes track (CKA, CKAD, CKS, KCNA, KCSA) — with a track record of driving governance and cross-functional ownership in regulated, high-stakes environments. Built and led a team of 8 engineers from the ground up while operating as a proven remote-first collaborator across distributed, async teams. Outside of work, actively researching NVIDIA AI infrastructure and cybersecurity through a self-hosted LLM environment running quantized 3–7B models in a personal homelab."
 };
 
 export const skills = [
@@ -141,6 +141,8 @@ export const experiences: Experience[] = [
 ];
 
 export const certifications = [
+  { name: "Kubestronaut", issuer: "The Linux Foundation", date: "Jul 2026 — No Expiration" },
+  { name: "CKS: Certified Kubernetes Security Specialist", issuer: "The Linux Foundation", date: "Jul 2026 — Jul 2028" },
   { name: "Generative AI Leader", issuer: "Google", date: "Jul 2026 — Jul 2029" },
   { name: "Google Cloud Certified Professional Cloud DevOps Engineer", issuer: "Google", date: "Jul 2026 — Jul 2028" },
   { name: "KCSA: Kubernetes and Cloud Native Security Associate", issuer: "The Linux Foundation", date: "Nov 2025 — Nov 2027" },
